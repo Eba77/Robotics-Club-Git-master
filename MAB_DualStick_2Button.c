@@ -30,8 +30,13 @@ task main()
 	while(1 == 1)
 	{
 		//Driving Motor Control
-		motor[leftMotor] = vexRT[Ch3];
-		motor[rightMotor] = vexRT[Ch2];
+		if (vexRT[Btn6D] != 1) {
+			motor[leftMotor] = vexRT[Ch3];
+			motor[rightMotor] = vexRT[Ch2];
+		} else {
+			motor[rightMotor] = vexRT[Ch2];
+			motor[leftMotor] = motor[rightMotor];
+		}
 
 		//Arm Control
 		if(vexRT[Btn6U] == 1)
